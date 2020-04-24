@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WiredBrain.DataAccess;
 
 namespace WiredBrain
 {
@@ -11,6 +12,25 @@ namespace WiredBrain
         static void Main(string[] args)
         {
             Console.WriteLine("Wired Brain Coffee!");
+            Console.WriteLine("Write 'help' to list available commands");
+
+            var coffeeShopDataProvider = new CoffeeShopDataProvider(); 
+
+            while (true)
+            {
+                var line = Console.ReadLine();
+
+                var coffeeShops = coffeeShopDataProvider.LoadCoffeeShops();
+
+                if (string.Equals("help", line, StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("> Available coffee shop commands:");
+                    foreach (var coffeeShop in coffeeShops)
+                    {
+                        Console.WriteLine($"> " + coffeeShop.Location);
+                    }
+                }
+            }
         }
     }
 }

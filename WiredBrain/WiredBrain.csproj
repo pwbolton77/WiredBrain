@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WiredBrain.DataAccess\WiredBrain.DataAccess.csproj">
+      <Project>{40D274B7-E98F-4E41-BD2B-781BF7EDC876}</Project>
+      <Name>WiredBrain.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
